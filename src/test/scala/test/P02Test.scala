@@ -2,11 +2,18 @@ package test
 
 import org.scalatest.FlatSpec
 import org.scalatest.matchers.ShouldMatchers
+import org.scalatest.prop.Checkers
+
+import org.scalacheck.Prop
+import org.scalacheck.Prop._
+import org.scalacheck.Arg
+import org.scalatest.prop.Checkers._
+import org.scalacheck.Arbitrary.arbitrary
 
 class P02Test extends FlatSpec with ShouldMatchers {
   
   it should "validate the property" in {
-    check( Prop.forAll { list: List[Int] => (list.length >= 2) ==> list.dropRight(2).head == P02.property(list)} )
+    check( Prop.forAll { list: List[Int] => (list.length > 1) ==> (list.reverse.tail.head == P02.penultimate(list)) } )
   }
   
   it should "get the penultieme element" in {
