@@ -15,7 +15,7 @@ class P06Test extends FlatSpec with ShouldMatchers with Checkers {
   
   it should "validate the property" in {
     check( Prop.forAll { list: List[String] => (list.reverse == list) == P06.isPalindrome(list) } )
-    check( Prop.forAll { list: List[String] => (list.reverse == list) => P06.isPalindrome(list) } )
+    check( Prop.forAll { list: List[String] => (list.reverse == list) ==> P06.isPalindrome(list) } )
     // check( Prop.forAllNoShrink(arbitrary[List[Int]])(list => (list.reverse != list) ==> !P06.isPalindrome(list)))
   }
 
