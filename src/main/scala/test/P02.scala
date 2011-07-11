@@ -1,6 +1,8 @@
 package test
 
 object P02 {
+  
+  //Find the last but one element of a list.
   def penultimate[E](ls: List[E]): E = ls match {
     case Nil | List() => throw new NoSuchElementException     
     case el1 :: _ :: Nil => el1
