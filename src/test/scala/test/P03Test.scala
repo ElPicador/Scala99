@@ -14,7 +14,7 @@ class P03Test extends FlatSpec with ShouldMatchers {
     check( Prop.forAll { (list: List[Int], n: Int) => 
       (n > 0 && list.length > n) ==> 
         (list(n) == P03.nth(n, list))
-    }, maxDiscarded(1000) )
+    }, maxDiscarded(1500) )
   }
   
   it should "get the n-th element" in {
