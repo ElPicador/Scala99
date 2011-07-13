@@ -24,4 +24,15 @@ class P02Test extends FlatSpec with ShouldMatchers {
     P02.penultimate(list2) should equal (1)
   }
   
+  it should "throw exception" in {
+    intercept[NoSuchElementException] {
+      P02.penultimate(List())
+    }
+    
+    intercept[NoSuchElementException] {
+      P02.penultimate(List(1))
+    }
+  }
+  
+  
 }
