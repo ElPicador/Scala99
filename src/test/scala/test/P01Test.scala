@@ -13,4 +13,10 @@ class P01Test extends FlatSpec with ShouldMatchers {
     P01.last(oneElementList) should equal (1)
   }
   
+  it should "throw exception" in {
+    intercept[NoSuchElementException] {
+      P01.last(List())
+    }
+  }
+  
 }
