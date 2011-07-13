@@ -25,4 +25,15 @@ class P03Test extends FlatSpec with ShouldMatchers {
     P03.nth(0, oneElementList) should equal (1)
   }
   
+  it should "throw exception" in {
+    intercept[NoSuchElementException] {
+      P03.nth(1, List())
+    }
+    
+    intercept[NoSuchElementException] {
+      P03.nth(-1, List(1))
+    }
+  }
+  
+  
 }
