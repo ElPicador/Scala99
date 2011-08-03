@@ -20,8 +20,6 @@ class P07Test extends FlatSpec with ShouldMatchers with Checkers {
   it should "do nothing on a simple list" in {
     P07.flatten(Nil) should equal (Nil)
     
-    P07.flatten(List()) should equal (List())    
-    
     val list = List(1, 2, 3, 4)
     P07.flatten(list) should equal (list)
   }

@@ -28,8 +28,6 @@ class P08Test extends FlatSpec with ShouldMatchers with Checkers {
   }
   
   it should "do nothing on a simple list" in {
-    P08.compress(Nil) should equal (Nil)
-    
     P08.compress(List()) should equal (List())    
     
     val list = List(1, 2, 3, 4)

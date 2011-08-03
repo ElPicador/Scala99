@@ -21,8 +21,6 @@ class P09Test extends FlatSpec with ShouldMatchers with Checkers {
   it should "do nothing on a simple list" in {
     P09.pack(Nil) should equal (List(List()))
     
-    P09.pack(List()) should equal (List(List()))    
-    
     val list = List(1, 2, 3, 4)
     P09.pack(list) should equal (List(List(1), List(2), List(3), List(4)))
   }

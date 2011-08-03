@@ -19,11 +19,6 @@ class P05Test extends FlatSpec with ShouldMatchers with Checkers {
     P05.reverse(list) should equal (Nil)
   }
   
-  it should "reverse the empty list" in {
-    val list = List()
-    P05.reverse(list) should equal (list)
-  }
-
   it should "reverse a list with one element" in {
     val list = List("r")
     P05.reverse(list) should equal (list)
