@@ -19,5 +19,12 @@ class MyList[E](list: List[E]) {
     case _ :: tail => (new MyList(tail)).penultimate
   }
   
+  //Find the Kth element of a list.
+  //By convention, the first element in the list is element 0.
+  def nth(n: Int): E = (n, list) match {
+    case (0, elm :: _) => elm
+    case (n, _ :: tail) => (new MyList(tail)).nth(n - 1)
+    case _ => throw new NoSuchElementException
+  }
   
 }

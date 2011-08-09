@@ -9,29 +9,30 @@ import org.scalacheck.Arg
 import org.scalatest.prop.Checkers._
 import org.scalacheck.Arbitrary.arbitrary
 
+import test.MyList._
+
+
 class P03Test extends FlatSpec with ShouldMatchers {
   it should "validate the property" in {    
     check( Prop.forAll { (list: List[Int], n: Int) => 
       (n > 0 && list.length > n) ==> 
-        (list(n) == P03.nth(n, list))
+        (list(n) == list.nth(n))
     }, maxDiscarded(1500) )
   }
   
   it should "get the n-th element" in {
-    val list = List(1, 2, 3, 4, 5)
-    P03.nth(4, list) should equal (5)
+    List(1, 2, 3, 4, 5).nth(4) should equal (5)
     
-    val oneElementList = List(1)
-    P03.nth(0, oneElementList) should equal (1)
+    List(1).nth(0) should equal (1)
   }
   
   it should "throw exception" in {
     intercept[NoSuchElementException] {
-      P03.nth(1, List())
+      Nil.nth(1)
     }
     
     intercept[NoSuchElementException] {
-      P03.nth(-1, List(1))
+      Nil.nth(-1)
     }
   }
   
