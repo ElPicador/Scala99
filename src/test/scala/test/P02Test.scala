@@ -10,27 +10,27 @@ import org.scalacheck.Arg
 import org.scalatest.prop.Checkers._
 import org.scalacheck.Arbitrary.arbitrary
 
+import test.MyList._
+
 class P02Test extends FlatSpec with ShouldMatchers {
   
   it should "validate the property" in {
-    check( Prop.forAll { list: List[Int] => (list.length > 1) ==> (list.reverse.tail.head == P02.penultimate(list)) } )
+    check( Prop.forAll { list: List[Int] => (list.length > 1) ==> (list.reverse.tail.head == list.penultimate) } )
   }
   
   it should "get the penultieme element" in {
-    val list = List(1, 2, 3, 4, 5)
-    P02.penultimate(list) should equal (4)
+    List(1, 2, 3, 4, 5).penultimate should equal (4)
     
-    val list2 = List(1, 2)
-    P02.penultimate(list2) should equal (1)
+    List(1, 2).penultimate should equal (1)
   }
   
   it should "throw exception" in {
     intercept[NoSuchElementException] {
-      P02.penultimate(List())
+      Nil.penultimate
     }
     
     intercept[NoSuchElementException] {
-      P02.penultimate(List(1))
+      List(1).penultimate
     }
   }
   
