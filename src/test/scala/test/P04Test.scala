@@ -9,19 +9,20 @@ import org.scalacheck.Arg
 import org.scalatest.prop.Checkers._
 import org.scalacheck.Arbitrary.arbitrary
 
+import test.MyList._
+
+
 class P04Test extends FlatSpec with ShouldMatchers {
   
   it should "validate the property" in {    
-    check( Prop.forAll { (list: List[Int]) => (list.length == P04.length(list))
+    check( Prop.forAll { (list: List[Int]) => (list.length == list.myLength)
     })
   }
     
   it should "get the length" in {
-    val list = List(1, 2, 3, 4, 5)
-    P04.length(list) should equal (5)
+    List(1, 2, 3, 4, 5).myLength should equal (5)
     
-    val emptyList = List[Int]()
-    P04.length(emptyList) should equal (0)
+    Nil.myLength should equal (0)
   }
   
 }

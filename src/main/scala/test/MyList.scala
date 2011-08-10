@@ -27,4 +27,12 @@ class MyList[E](list: List[E]) {
     case _ => throw new NoSuchElementException
   }
   
+  //Find the number of elements of a list.
+  def myLength: Int = list match {
+    case Nil => 0
+    case head :: Nil => 1
+    case _ :: tail => (new MyList(tail)).myLength + 1
+  }
+  
+  
 }
